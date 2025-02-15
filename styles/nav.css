@@ -1,0 +1,75 @@
+@import url("./font.css");
+@import url("./vars.css");
+
+:root {
+	--nav-height: 100px;
+}
+* {
+	font-family: "Rota", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+
+nav > a {
+	color: white;
+	text-decoration: none;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	align-items: center;
+	background-color: var(--background-color);
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	max-width: 100%;
+	min-width: 100%;
+	max-height: var(--nav-height);
+	border-bottom: solid 2px #a09e9e;
+	z-index: 9999;
+}
+
+.nav-items {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	align-items: center;
+	flex: 0.3;
+}
+
+.nav-items > a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.25em;
+	border-bottom: 1px transparent solid;
+	transition: all linear 0.1s;
+}
+
+.nav-items > a:hover {
+	/* font-weight: bold; */
+	border-color: #a09e9e;
+}
+
+body {
+	padding-top: var(--nav-height);
+}
+
+#logo {
+	width: 120px;
+}
+
+@media (max-width: 800px) {
+	.nav-items {
+		flex: 0.8;
+	}
+
+	.nav-items > a {
+		font-size: 1em;
+	}
+	#logo {
+		width: 80px;
+	}
+}

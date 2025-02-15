@@ -1,0 +1,175 @@
+@import url("./vars.css");
+@import url("./font.css");
+* {
+	font-family: "Rota", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+
+	line-height: 1.5;
+	letter-spacing: 1px;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	font-size: 100%;
+}
+
+body {
+	--pad: 50px;
+	padding-left: var(--pad);
+	padding-right: var(--pad);
+	background-color: var(--background-color);
+	color: #121212;
+}
+.post p {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+.post {
+	background-color: white;
+	padding: 30px 20px;
+	border-radius: 10px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+	body {
+		background-color: white;
+		--pad: 10px;
+	}
+	.post {
+		padding: 0;
+	}
+}
+
+@media (max-width: 600px) {
+	body {
+		--pad: 5px;
+	}
+}
+
+q,
+blockquote {
+	quotes: none;
+}
+blockquote {
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 40px;
+	margin-inline-end: 40px;
+	unicode-bidi: isolate;
+
+	margin: 0;
+	padding-left: 1em;
+	border-left: 3px solid #9198a1;
+	border-radius: 2px;
+}
+
+a img {
+	border: none;
+}
+
+h1 {
+	font-weight: 700;
+	color: #333;
+	font-size: 1.6em;
+	line-height: 1.3em;
+	margin-bottom: 0.78571em;
+}
+
+h2 {
+	font-weight: 600;
+	color: #333;
+	font-size: 1.3em;
+	line-height: 1em;
+	margin-top: 2em;
+	margin-bottom: 0.6em;
+}
+
+h3 {
+	font-weight: 600;
+	color: #333;
+	font-size: 1.15em;
+	line-height: 1em;
+	margin-top: 1em;
+	margin-bottom: 0.6em;
+}
+
+h4 {
+	font-weight: 500;
+	color: #333;
+	font-size: 1em;
+	line-height: 1em;
+	margin-top: 1em;
+	margin-bottom: 0.6em;
+}
+
+p {
+	margin-bottom: 1.57143em;
+	hyphens: auto;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+i,
+em {
+	font-style: italic;
+}
+
+s {
+	color: #878787;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+hr {
+	height: 1px;
+	border: 0;
+	background-color: #dedede;
+	margin: 0.7em auto 0.7em;
+}
+
+code {
+	display: inline;
+	background: #fcfcfc;
+	border: 1px solid #dedede;
+	border-radius: 0.3em;
+	padding: 0.2em 0.5em;
+	font-family: "Fira Code Retina", monospace;
+	font-size: 0.7em;
+}
+
+pre {
+	display: block;
+	background: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+pre code {
+	display: block;
+	width: 100%;
+	line-height: 1.45em;
+
+	padding: 1.2em 1em;
+	margin: 0 0 1.5em;
+}
+
+.hljs {
+	padding: 0;
+}
+
+ul,
+ol {
+	padding-left: 40px;
+}
