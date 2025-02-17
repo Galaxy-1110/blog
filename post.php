@@ -1,7 +1,5 @@
 <?php
 
-use League\CommonMark\GithubFlavoredMarkdownConverter;
-
     include("./components/db.php");
     $foundposts = false;
     $post = null;
@@ -35,7 +33,9 @@ use League\CommonMark\GithubFlavoredMarkdownConverter;
     </title>   
 </head>
 <body>
-    <?php include("./components/nav.php"); ?>
+    <?php 
+        $title = "POST | " . ($foundposts ? htmlspecialchars($post['title']) : "Not Found");
+        include("./components/header.php"); ?>
     <?php
         if($foundposts && $post) {
             require_once './components/Parsedown.php';

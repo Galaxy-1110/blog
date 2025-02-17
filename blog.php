@@ -1,17 +1,10 @@
 <?php include("./components/db.php") ?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Discover Blogs</title>
-    <link rel="stylesheet" href="./styles/blog.css" />
-    <link rel="stylesheet" href="./styles/nav.css" />
-</head>
-
-<body>
-    <?php include("./components/nav.php"); ?>
+    <?php 
+        $title = "Explore new posts";
+        include("./components/header.php"); 
+    ?>
     <?php
         $query = "SELECT * FROM POSTS ORDER BY CREATED_AT DESC";
         $result = $connection->query($query);

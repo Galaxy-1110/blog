@@ -16,22 +16,12 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Create new post</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
-    <link rel="stylesheet" href="./styles/create.css">
-    <link rel="stylesheet" href="./styles/nav.css" />
-    <script src="https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
-</head>
-<body>
-    <?php include("./components/nav.php"); ?>
+    <?php 
+        $title = "Create a New Blog Post";
+        include("./components/header.php"); 
+    ?>
     <div class="container">
 
         <h1>Create a New Blog Post</h1>
