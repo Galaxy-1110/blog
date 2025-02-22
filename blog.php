@@ -1,7 +1,13 @@
-<?php include("./components/db.php") ?>
+<?php 
+    session_start();
+    include_once("./components/db.php");
+    include('./components/alert.php');
+    displayAlert(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <?php 
+
         $title = "Explore new posts";
         include("./components/header.php"); 
     ?>
@@ -9,7 +15,7 @@
         $query = "SELECT * FROM POSTS ORDER BY CREATED_AT DESC";
         $result = $connection->query($query);
         if ($result->num_rows <= 0) {
-            echo "No posts found <a href='create.php'>BE THE FIRST ONE TO CREATE</a>";
+            echo "<section class=\"nofind\">No posts found! <a href='create.php'>BE THE FIRST ONE TO CREATE</a></section>";
             return;
         }
 
@@ -23,16 +29,16 @@
             require_once './components/ParsedownCheckbox.php';
             $parsedown = new ParsedownCheckbox();
 
-            $unf_content = $parsedown->text($row['content']);
-            $content = html_entity_decode(strip_tags($unf_content));
-            echo
-            "<a href=\"post.php?id={$row['id']}\">
-                 <div class=\"post\">
+            $unf_content = $parsedown->text($row['CONTENT']);
+            $content = strip_tags(html_entity_decode($unf_content));;
+            echo "
+            <a href=\"post.php?id={$row['ID']}\">
+                <div class=\"post\">
                     <div class=\"content\">
-                        <h2>{$row['title']}</h2>
+                        <h2>{$row['TITLE']}</h2>
                         <p>" . (strlen($content) > 60 ? substr($content, 0, 56) . "..... " : $content) . "</p>
                     </div>
-                    <span><em>By {$row['author']} on {$row['created_at']}</em></span>
+                    <span><em>By {$row['AUTHOR']} on {$row['CREATED_AT']}</em></span>
                 </div>
             </a>";
         }

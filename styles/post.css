@@ -33,6 +33,7 @@ body {
 	border-radius: 10px;
 	max-width: 100%;
 	overflow: hidden;
+	margin-bottom: 18px;
 }
 
 @media (max-width: 1000px) {

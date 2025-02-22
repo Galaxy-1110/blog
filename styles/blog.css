@@ -77,3 +77,20 @@ a {
 .post:hover {
 	background-color: rgb(221, 219, 219);
 }
+
+.nofind {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	overflow: hidden;
+}
+
+.nofind,
+.nofind a {
+	color: white;
+	font-size: 2em;
+}
+
+.nofind a {
+	text-decoration: underline;
+}

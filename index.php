@@ -1,9 +1,13 @@
-<?php include("./components/db.php") ?>
 <!DOCTYPE html>
 <html lang="en">
     <?php
+        include_once("./components/db.php");
+        session_start();
         $title = "Home";
         include("./components/header.php"); 
+        include("./components/alert.php");
+        displayAlert();
+
     ?>
     <section class="hero">
         <h1>Exploring the World, One Blog Post at a Time</h1>
