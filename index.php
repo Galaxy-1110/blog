@@ -14,8 +14,6 @@
         <p>Sharing stories, tips, and lessons from a curious mind.</p>
         <a href="./blog.php"><button>Explore the Blog</button></a>
          <img src="./images/globe.gif" alt="like" class="i1" />
-        <!-- <img src="./images/like.svg" alt="like" class="i1" />
-        <img src="./images/laptop.png" alt="post" class="i2" /> -->
     </section>
 </body>
 
