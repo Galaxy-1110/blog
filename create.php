@@ -16,7 +16,7 @@
         $query->bind_param("sss", $title, $content, $author);
 
         if ($query->execute()) {
-            header("Location: ./blog.php");
+            alert("Post created successfully", "success", "./blog.php");
         } else {
             echo "ERROR: " . $connection->error;
         }
