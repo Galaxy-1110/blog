@@ -12,7 +12,7 @@
         if($result->num_rows > 0) {
             $post = $result->fetch_assoc();
             $author = $post['AUTHOR'];
-            if(!$user->status || $user->name != $author) {
+            if(!$user->status || $user->name != $author && $user->admin == FALSE) {
                 alert("You are not permitted to do that!", "error", "./");
             }
         }
