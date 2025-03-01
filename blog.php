@@ -12,7 +12,7 @@
         include("./components/header.php"); 
     ?>
     <?php
-        $query = "SELECT POSTS.* ,USERS.NAME AS AUTHOR
+        $query = "SELECT POSTS.*, USERS.NAME AS AUTHOR
          FROM POSTS 
          JOIN USERS ON POSTS.AUTHORID = USERS.UID 
          ORDER BY CREATED_AT DESC";
