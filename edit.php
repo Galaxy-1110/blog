@@ -11,8 +11,8 @@
         $result = $connection -> query($query);
         if($result->num_rows > 0) {
             $post = $result->fetch_assoc();
-            $author = $post['AUTHOR'];
-            if(!$user->status || $user->name != $author && $user->admin == FALSE) {
+            $author = $post['AUTHORID'];
+            if(!$user->status || $user->uid != $author && $user->admin == FALSE) {
                 alert("You are not permitted to do that!", "error", "./");
             }
         }

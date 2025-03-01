@@ -12,7 +12,11 @@
         include("./components/header.php"); 
     ?>
     <?php
-        $query = "SELECT * FROM POSTS ORDER BY CREATED_AT DESC";
+        $query = "SELECT POSTS.* ,USERS.NAME AS AUTHOR
+         FROM POSTS 
+         JOIN USERS ON POSTS.AUTHORID = USERS.UID 
+         ORDER BY CREATED_AT DESC";
+
         $result = $connection->query($query);
         if ($result->num_rows <= 0) {
             echo "<section class=\"nofind\">No posts found! <a href='create.php'>BE THE FIRST ONE TO CREATE</a></section>";

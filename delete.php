@@ -10,12 +10,12 @@
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $query = $connection->prepare("SELECT * FROM POSTS WHERE ID = ?");
+        $query = $connection->prepare("SELECT AUTHORID, ID FROM POSTS WHERE ID = ?");
         $query->bind_param("i", $id);
         $query->execute();
         $result = $query->get_result();
         $post = $result->fetch_assoc();
-        if($post['AUTHOR'] == $user->name || $user->admin) {
+        if($post['AUTHORID'] == $user->uid || $user->admin) {
             $query = $connection->prepare("DELETE FROM POSTS WHERE ID = ?");
             $query->bind_param("i", $id);
             if ($query->execute()) {

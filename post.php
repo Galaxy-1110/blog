@@ -7,7 +7,10 @@
     $post = null;
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
-        $query = "SELECT * FROM POSTS WHERE ID = $id";
+        $query = "SELECT POSTS.*, USERS.NAME AS AUTHOR
+         FROM POSTS 
+         JOIN USERS ON POSTS.AUTHORID = USERS.UID
+         WHERE ID = $id";
         $result = $connection -> query($query);
        
         if($result->num_rows > 0) {
@@ -42,11 +45,13 @@
         <div><?php echo $content; ?></div>
         <?php
             include_once('./components/isloggedin.php');
-
             $user= isloggedin();
-            if($user->status && $user->name == $post['AUTHOR'] || $user->admin) {
-                echo "<a href=\"edit.php?id={$post['ID']}\">Edit</a>";
-                echo "<a href=\"delete.php?id={$post['ID']}\">Delete</a>";
+            if($user->status && $user->uid == $post['AUTHORID'] || $user->admin) {
+                echo "<hr>";
+                echo "<div class='actions'>";
+                echo "<a href=\"edit.php?id={$post['ID']}\"><img title='EDIT' src=\"./images/edit.svg\" alt=\"Edit\" class=\"edit\"></a>";
+                echo "<a href=\"delete.php?id={$post['ID']}\"><img title='DELETE' src=\"./images/delete.svg\" alt=\"Delete\" class=\"delete\"></a>";
+                echo "</div>";
 
             }
         ?>
@@ -59,6 +64,7 @@
         }
     ?>
 </body>
+
 </html>
 <script>hljs.highlightAll();</script>
 

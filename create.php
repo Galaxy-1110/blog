@@ -12,8 +12,8 @@
     if (isset($_POST['submit'])) {
         $title = htmlspecialchars($_POST['title']);   
         $content = $_POST['content']; 
-        $query = $connection->prepare("INSERT INTO POSTS (TITLE, CONTENT, AUTHOR) VALUES (?, ?, ?)");
-        $query->bind_param("sss", $title, $content, $author);
+        $query = $connection->prepare("INSERT INTO POSTS (TITLE, CONTENT, AUTHORID) VALUES (?, ?, ?)");
+        $query->bind_param("ssi", $title, $content, $user->uid);
 
         if ($query->execute()) {
             alert("Post created successfully", "success", "./blog.php");

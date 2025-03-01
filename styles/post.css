@@ -174,3 +174,23 @@ ul,
 ol {
 	padding-left: 40px;
 }
+
+.actions {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	margin-top: 1em;
+}
+
+.actions > a > img {
+	width: 25px;
+	height: 25px;
+	filter: grayscale(100%);
+	transition: all 0.5s cubic-bezier(0.46, 0.01, 0.63, 1.25);
+}
+
+.delete:hover,
+.edit:hover {
+	filter: grayscale(0%);
+	scale: 1.01;
+}
