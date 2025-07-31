@@ -54,11 +54,14 @@
         <h1>Signup</h1>
         <form method="post">
             <div class="form-group">
-
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" required>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" required>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
             </div>
             
             <button type="submit" name="signup">Signup</button>

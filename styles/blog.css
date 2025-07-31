@@ -6,7 +6,7 @@
 	font-style: normal;
 
 	line-height: 1.5;
-	letter-spacing: 1px;
+	letter-spacing: 1.5px;
 }
 
 body {
@@ -29,7 +29,7 @@ a {
 .post {
 	background-color: whitesmoke;
 	border-radius: 10px;
-	padding: 15px;
+	padding: 10px 20px;
 	margin: 10px;
 	height: 230px;
 	overflow: hidden;

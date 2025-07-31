@@ -25,7 +25,7 @@ $query = "INSERT INTO USERS (NAME, PASSWORD, ADMIN) VALUES ('admin', '$password'
 $connection->query($query);
 
 echo "Admin user created successfully<br>";
-$query = "INSERT INTO POSTS (TITLE, CONTENT, AUTHOR) VALUES ('Hello World', 'Welcome to my blog', 'admin')";
+$query = "INSERT INTO POSTS (TITLE, CONTENT, AUTHORID) VALUES ('Hello World', 'Welcome to my blog', 1)";
 $connection->query($query);
 
 echo "Hello World post created successfully<br>";

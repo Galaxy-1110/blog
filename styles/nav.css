@@ -21,6 +21,7 @@ nav {
 	text-align: center;
 	align-items: center;
 	background-color: var(--background-color);
+	letter-spacing: 1.5px !important;
 
 	position: fixed;
 	top: 0;

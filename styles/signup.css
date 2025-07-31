@@ -8,6 +8,7 @@ body {
 	align-items: center;
 	height: 100dvh;
 	margin-top: 0 !important;
+	letter-spacing: 2px !important;
 }
 
 .container {
@@ -34,16 +35,29 @@ input {
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
+	font-size: medium;
+	letter-spacing: 2px;
 }
 .form-group {
 	margin-bottom: 10px;
 	display: flex;
+	gap: 10px;
 	flex-direction: column;
+}
+
+.form-group div {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label {
+	font-size: large;
+	margin-bottom: 5px;
 }
 button {
 	padding: 10px;
 	border: none;
-	font-size: large;
+	font-size: medium;
 	border-radius: 5px;
 	background-color: var(--background-color);
 	color: white;
