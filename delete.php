@@ -1,6 +1,9 @@
 <?php
     session_start();
-    include_once("./components/alert.php");
+
+    include("./components/alert.php");
+    displayAlert();
+    
     include_once('./components/isloggedin.php');
     $user = isloggedin();
     

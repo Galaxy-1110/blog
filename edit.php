@@ -1,10 +1,12 @@
 <?php 
     session_start();
     include_once("./components/db.php");
+
     include("./components/alert.php");
+    displayAlert();
+    
     include_once('./components/isloggedin.php');
     $user = isloggedin();
-   
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
         $query = "SELECT * FROM POSTS WHERE ID = $id";
@@ -17,24 +19,25 @@
             }
         }
     }
-
+    
     if (isset($_POST['submit'])) {
         $title = htmlspecialchars($_POST['title']);
         $content = $_POST['content'];
         $query = $connection->prepare("UPDATE POSTS SET TITLE = ?, CONTENT = ? WHERE ID = ?");
         $query->bind_param("ssi", $title, $content, $id);
-
+        
         if ($query->execute()) {
             alert("Post edited successfully", "success", "./post.php?id=$id");
         } else {
             echo "ERROR: " . $connection->error;
         }
     }
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
     <?php 
         $title = "Edit Your Post";
+        $easyMDE = true;
         include("./components/header.php"); 
     ?>
     <div class="container">

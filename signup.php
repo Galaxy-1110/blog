@@ -2,17 +2,17 @@
 <html lang="en">
 <?php
     session_start();
-    $title = "Signup";
-    include_once './components/header.php';
+    include_once("./components/alert.php");
+    displayAlert();
     include_once("./components/db.php");
-    include("./components/alert.php");
+
     include_once("./components/isloggedin.php");
 
     $user = isloggedin();
     if($user->status) {
         alert("You are already logged in as " . $user->name, "error", "./");
     }
-    displayAlert();
+
 ?>
 <?php
     if(isset($_POST['signup'])) {
@@ -49,7 +49,10 @@
         }
     }
 ?>
-
+<?php
+    $title = "Signup";
+    include_once './components/header.php';
+?>
     <div class="container" name=>
         <h1>Signup</h1>
         <form method="post">
@@ -64,11 +67,9 @@
                 </div>
             </div>
             
-            <button type="submit" name="signup">Signup</button>
-            <p class="blur">Already have an account? <a href="login.php">Login</a></p>
+            <button type="submit" name="signup">Create Account</button>
+            <p class="blur">Already have an account? <a href="login.php" class="links">Login</a></p>
         </form>
     </div>
-
-    
 </body>
 </html>

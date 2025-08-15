@@ -1,33 +1,38 @@
-@import url("./font.css");
 @import url("./vars.css");
-
 :root {
 	--nav-height: 100px;
+	--ht-above-nav: 20px;
 }
-* {
-	font-family: "Rota", sans-serif;
-	font-optical-sizing: auto;
-	font-style: normal;
+/* Avoid nav height conflicting with start of elements of webpage */
+body {
+	padding-top: calc(var(--nav-height) + var(--ht-above-nav));
 }
 
 nav > a {
 	color: white;
 	text-decoration: none;
 }
-
 nav {
 	display: flex;
 	justify-content: space-between;
 	text-align: center;
 	align-items: center;
-	background-color: var(--background-color);
-	letter-spacing: 1.5px !important;
+
+	background: rgba(255, 255, 255, 0.14);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(12.7px);
+	-webkit-backdrop-filter: blur(12.7px);
+	border: 1px solid rgba(255, 255, 255, 0.35);
 
 	position: fixed;
-	top: 0;
-	left: 0;
-	max-width: 100%;
-	min-width: 100%;
+	top: var(--ht-above-nav);
+	left: 50%;
+	transform: translateX(-50%);
+
+	width: 90%;
+	padding: 0 0.75rem;
+
 	max-height: var(--nav-height);
 	border-bottom: solid 2px #a09e9e;
 	z-index: 9999;
@@ -40,22 +45,23 @@ nav {
 	align-items: center;
 	flex: 0.3;
 }
+a.nav-item::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: -20px;
+	right: -20px;
+	bottom: -10px;
+	z-index: -1;
+}
 
-.nav-items > a {
+a.nav-item {
 	text-decoration: none;
 	color: white;
-	font-size: 1.25em;
 	border-bottom: 1px transparent solid;
 	transition: all linear 0.1s;
-}
-
-.nav-items > a:hover {
-	/* font-weight: bold; */
-	border-color: #a09e9e;
-}
-
-body {
-	padding-top: var(--nav-height);
+	padding: 10px 20px;
+	position: relative;
 }
 
 #logo {
@@ -64,11 +70,7 @@ body {
 
 @media (max-width: 800px) {
 	.nav-items {
-		flex: 0.8;
-	}
-
-	.nav-items > a {
-		font-size: 1em;
+		flex: 0.4;
 	}
 	#logo {
 		width: 80px;

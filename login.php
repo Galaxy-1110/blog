@@ -2,19 +2,19 @@
 <html lang="en">
 <?php
     session_start();
-     $title = "Login";
-     include_once('./components/header.php');
+    
+    include_once("./components/alert.php");
+    displayAlert();
+        
      include_once("./components/db.php");
-     include_once("./components/alert.php");
      include_once("./components/isloggedin.php");
 
     $user = isloggedin();
     if($user->status) {
         alert("You are already logged in as " . $user->name, "error", "./");
     }
-    displayAlert();
 ?>
-    
+
 <?php
     if(isset($_POST['login'])) {
         $username = $_POST['username'];
@@ -36,9 +36,12 @@
         }   
     }
 ?>
-    <body>
-        <div class="container">
-            <h1>Login</h1>
+<?php
+    $title = "Login";
+     include_once('./components/header.php');
+?>
+    <div class="container">
+        <h1>Welcome back!</h1>
         <form action="login.php" method="post">
             <div class="form-group">
             <div>
@@ -50,11 +53,11 @@
                 <input type="password" name="password" id="password" required>
             </div>
             </div>
-            
+                
             <button type="submit" name="login">Login</button>
-            
-            <p class="blur">Don't have an account? <a href="signup.php">Sign up</a> here!</p>
+                
+            <p class="blur">Don't have an account? <a href="signup.php" class="links">Sign up</a> here!</p>
         </form>
-        </div>
+    </div>
 </body>
 </html>
