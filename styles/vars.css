@@ -1,4 +1,15 @@
 :root {
 	--btnwidth: 500px;
-	--background-color: #181818;
+
+	--primary: #ffffff;
+	--secondary: #d1c4e9;
+	/* For links, buttons, call to action */
+	--accent1: #7c4dff;
+	--accent2: #9457eb;
+	/* FOr palceholder, helper text */
+	--muted: #9e9e9e;
+	--error: #ef5350;
+	--success: #66bb6a;
+	--links: #b388ff;
+	--background: rgba(255, 255, 255, 0.14);
 }

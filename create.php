@@ -1,31 +1,34 @@
 <?php 
     session_start();
     include_once("./components/db.php");
+
     include("./components/alert.php");
+    displayAlert();
+    
     include_once('./components/isloggedin.php');
     $user = isloggedin();
     if(!$user->status) {
         alert("You must be logged in to create a post", "error", "./login.php");
     }
     $author = $user->name;
-
     if (isset($_POST['submit'])) {
         $title = htmlspecialchars($_POST['title']);   
         $content = $_POST['content']; 
         $query = $connection->prepare("INSERT INTO POSTS (TITLE, CONTENT, AUTHORID) VALUES (?, ?, ?)");
         $query->bind_param("ssi", $title, $content, $user->uid);
-
+        
         if ($query->execute()) {
             alert("Post created successfully", "success", "./blog.php");
         } else {
             echo "ERROR: " . $connection->error;
         }
     }
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
     <?php 
         $title = "Create a New Blog Post";
+        $easyMDE = true;
         include("./components/header.php"); 
     ?>
     <div class="container">

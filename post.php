@@ -1,8 +1,11 @@
 <?php
     session_start();
     include("./components/db.php");
+
     include("./components/alert.php");
     displayAlert();
+    
+
     $foundposts = false;
     $post = null;
     if(isset($_GET['id'])) {
@@ -25,6 +28,7 @@
 <html lang="en">
     <?php 
         $title = "POST | " . ($foundposts ? htmlspecialchars($post['TITLE']) : "Not Found");
+        $easyMDE = true;
         include("./components/header.php"); ?>
     <?php
         if($foundposts && $post) {
